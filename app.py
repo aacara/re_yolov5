@@ -28,9 +28,9 @@ def imageInput(device, src):
                 f.write(image_file.getbuffer())
 
             # call Model prediction--
-            model = torch.hub.load('/home/doaz/Documents/yolov5', \
+            model = torch.hub.load('ultralytics/yolov5', \
                                   'custom', path='runs/cons0205/weights/best.pt', force_reload=True, source='local')
-            model.cuda() if device == 'cuda' else model.cpu()
+            #model.cuda() if device == 'cuda' else model.cpu()
             pred = model(imgpath)
             pred.render()  # render bbox in image
             for im in pred.ims:
@@ -58,7 +58,7 @@ def imageInput(device, src):
         with col2:
             if image_file is not None and submit:
                 # call Model prediction--
-                model = torch.hub.load('/home/doaz/Documents/yolov5', 'custom', \
+                model = torch.hub.load('ultralytics/yolov5', 'custom', \
                                         path='runs/cons0205/weights/best.pt', force_reload=True, source='local')
                 pred = model(image_file)
                 pred.render()  # render bbox in image
@@ -75,11 +75,6 @@ def main():
     st.sidebar.title('⚙️Options')
     datasrc = st.sidebar.radio("Select input source.", ['From test set.', 'Upload your own data.'])
 
-    # option = st.sidebar.radio("Select input type.", ['Image', 'Video'])
-    if torch.cuda.is_available():
-        deviceoption = st.sidebar.radio("Select compute Device.", ['cpu', 'cuda'], index=1)
-    else:
-        deviceoption = st.sidebar.radio("Select compute Device.", ['cpu', 'cuda'], index=0)
     # -- End of Sidebar
 
     st.header('🚧Construction Object Detection Model')
