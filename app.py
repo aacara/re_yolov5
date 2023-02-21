@@ -35,6 +35,7 @@ def imageInput(src):
             pred.render()  # render bbox in image
             for im in pred.ims:
                 im_base64 = Image.fromarray(im)
+                # not saving it to git
                 # im_base64.save(outputpath)
 
             # --Display predicton
