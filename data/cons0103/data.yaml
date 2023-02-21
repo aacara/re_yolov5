@@ -1,0 +1,28 @@
+#train : C:\Users\epfam\Desktop\yolov5\data\cons0103\train
+#val : C:\Users\epfam\Desktop\yolov5\data\cons0103\valid\images
+# docker
+train : /root/yolov5/data/cons0103/train
+val : /root/yolov5/data/cons0103/valid
+test : /root/yolov5/data/cons0103/test
+
+nc : 20
+names : ['brailleBlock',
+ 'brick',
+ 'castIronCover',
+ 'circleManhole',
+ 'collectorWall',
+ 'curbStone',
+ 'deckPlate',
+ 'doubleWallPipe',
+ 'floorPost',
+ 'flumeTube',
+ 'forms',
+ 'pvcPipe',
+ 'rubberCone',
+ 'scaffold',
+ 'squareManhole',
+ 'steelBar',
+ 'steelGrating',
+ 'trenchCover',
+ 'waterBarrier',
+ 'wideflangeShapes']
