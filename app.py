@@ -27,7 +27,7 @@ def imageInput(src):
             #-outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
             #-with open(imgpath, mode="wb") as f:
             #-    f.write(image_file.getbuffer())
-             with col2:
+            with col2:
                 st.image(img_, caption='Model Prediction(s)', use_column_width='always')
                 ### call Model prediction--
                 model = torch.hub.load('ultralytics/yolov5', 'custom', path='runs/cons0205/weights/best.pt', force_reload=True)
