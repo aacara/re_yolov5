@@ -13,6 +13,7 @@ import time
 
 
 #def imageInput(device, src):
+@st.cache
 def imageInput(src):
     if src == 'Upload your own data.':
         image_file = st.file_uploader("Upload An Image", type=['png', 'jpeg', 'jpg'])
@@ -69,7 +70,7 @@ def imageInput(src):
                     img_ = Image.open(os.path.join('data/outputs', os.path.basename(image_file)))
                     st.image(img_, caption='Model Prediction(s)')
 
-
+@st.cache
 def main():
     # -- Sidebar
     st.sidebar.title('⚙️Options')
