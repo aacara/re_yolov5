@@ -28,7 +28,6 @@ def imageInput(src):
             #-with open(imgpath, mode="wb") as f:
             #-    f.write(image_file.getbuffer())
             with col2:
-                st.image(img_, caption='Model Prediction(s)', use_column_width='always')
                 ### call Model prediction--
                 model = torch.hub.load('ultralytics/yolov5', 'custom', path='runs/cons0205/weights/best.pt', force_reload=True)
                 # model.cuda() if device == 'cuda' else model.cpu()
@@ -40,10 +39,11 @@ def imageInput(src):
                     # not saving it to git
                     # im_base64.save(outputpath)
 
-                # --Display predicton
+                    # --Display predicton
 
-                img_ =Image.open(im_base64)
-                # img_ = Image.open(outputpath)
+                    img_ =Image.open(im_base64)
+                    # img_ = Image.open(outputpath)
+                    st.image(img_, caption='Model Prediction(s)', use_column_width='always')
 
 
     elif src == 'From test set.':
