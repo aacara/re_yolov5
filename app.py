@@ -35,11 +35,12 @@ def imageInput(src):
             pred.render()  # render bbox in image
             for im in pred.ims:
                 im_base64 = Image.fromarray(im)
-                im_base64.save(outputpath)
+                # im_base64.save(outputpath)
 
             # --Display predicton
 
-            img_ = Image.open(outputpath)
+            img_ =Image.open(im_base64)
+            # img_ = Image.open(outputpath)
             with col2:
                 st.image(img_, caption='Model Prediction(s)', use_column_width='always')
 
