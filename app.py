@@ -12,7 +12,7 @@ import time
 
 
 
-def imageInput(device, src):
+def imageInput(src):
     if src == 'Upload your own data.':
         image_file = st.file_uploader("Upload An Image", type=['png', 'jpeg', 'jpg'])
         col1, col2 = st.columns(2)
