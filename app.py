@@ -13,7 +13,6 @@ import time
 
 
 #def imageInput(device, src):
-@st.cache
 def imageInput(src):
     if src == 'Upload your own data.':
         image_file = st.file_uploader("Upload An Image", type=['png', 'jpeg', 'jpg'])
