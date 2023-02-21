@@ -86,7 +86,8 @@ def main():
     st.header('🚧Construction Object Detection Model')
     st.subheader('👈🏽Select the options')
 
-    imageInput(deviceoption, datasrc)
+    #imageInput(deviceoption, datasrc)
+    imageInput(datasrc)
 
 if __name__ == '__main__':
     main()
