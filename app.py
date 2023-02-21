@@ -22,30 +22,29 @@ def imageInput(src):
             img_orig = ImageOps.exif_transpose(img)
             with col1:
                 st.image(img_orig, caption='Uploaded Image', use_column_width='always')
-            ts = datetime.timestamp(datetime.now())
+            #- ts = datetime.timestamp(datetime.now())
             #-imgpath = os.path.join('data/uploads', str(ts) + image_file.name)
             #-outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
             #-with open(imgpath, mode="wb") as f:
             #-    f.write(image_file.getbuffer())
-
-            ### call Model prediction--
-            model = torch.hub.load('ultralytics/yolov5', 'custom', path='runs/cons0205/weights/best.pt', force_reload=True)
-            # model.cuda() if device == 'cuda' else model.cpu()
-            #-pred = model(imgpath)
-            image_file_buf = image_file.getbuffer()
-            pred = model(image_file_buf)
-            pred.render()  # render bbox in image
-            for im in pred.ims:
-                im_base64 = Image.fromarray(im)
-                # not saving it to git
-                # im_base64.save(outputpath)
-
-            # --Display predicton
-
-            img_ =Image.open(im_base64)
-            # img_ = Image.open(outputpath)
-            with col2:
+             with col2:
                 st.image(img_, caption='Model Prediction(s)', use_column_width='always')
+                ### call Model prediction--
+                model = torch.hub.load('ultralytics/yolov5', 'custom', path='runs/cons0205/weights/best.pt', force_reload=True)
+                # model.cuda() if device == 'cuda' else model.cpu()
+                #-pred = model(imgpath)
+                pred = model(image_file)
+                pred.render()  # render bbox in image
+                for im in pred.ims:
+                    im_base64 = Image.fromarray(im)
+                    # not saving it to git
+                    # im_base64.save(outputpath)
+
+                # --Display predicton
+
+                img_ =Image.open(im_base64)
+                # img_ = Image.open(outputpath)
+
 
     elif src == 'From test set.':
         # Image selector slider
