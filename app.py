@@ -70,7 +70,7 @@ def imageInput(src):
                     img_ = Image.open(os.path.join('data/outputs', os.path.basename(image_file)))
                     st.image(img_, caption='Model Prediction(s)')
 
-@st.cache
+
 def main():
     # -- Sidebar
     st.sidebar.title('⚙️Options')
