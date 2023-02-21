@@ -23,15 +23,16 @@ def imageInput(src):
             with col1:
                 st.image(img_orig, caption='Uploaded Image', use_column_width='always')
             ts = datetime.timestamp(datetime.now())
-            imgpath = os.path.join('data/uploads', str(ts) + image_file.name)
-            outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
-            with open(imgpath, mode="wb") as f:
-                f.write(image_file.getbuffer())
+            #-imgpath = os.path.join('data/uploads', str(ts) + image_file.name)
+            #-outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
+            #-with open(imgpath, mode="wb") as f:
+            #-    f.write(image_file.getbuffer())
 
-            # call Model prediction--
+            ### call Model prediction--
             model = torch.hub.load('ultralytics/yolov5', 'custom', path='runs/cons0205/weights/best.pt', force_reload=True)
             # model.cuda() if device == 'cuda' else model.cpu()
-            pred = model(imgpath)
+            #-pred = model(imgpath)
+            pred = model(img_orig)
             pred.render()  # render bbox in image
             for im in pred.ims:
                 im_base64 = Image.fromarray(im)
