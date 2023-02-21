@@ -32,12 +32,10 @@ def imageInput(src):
                 model = torch.hub.load('ultralytics/yolov5', 'custom', path='runs/cons0205/weights/best.pt', force_reload=True)
                 # model.cuda() if device == 'cuda' else model.cpu()
                 #-pred = model(imgpath)
-                image_string = StringIO(image_file.getvalue().decode("utf-8"))
-                st.write(image_string)
-                st.write(image_string)
-                with open(image_string, mode="wb") as f:
-                    f.write(image_string.getbuffer())
-                pred = model(image_string)
+
+                with open(img, mode="wb") as f:
+                    f.write(img.getbuffer())
+                pred = model(img)
                 pred.render()  # render bbox in image
                 for im in pred.ims:
                     im_base64 = Image.fromarray(im)
