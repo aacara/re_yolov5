@@ -75,15 +75,6 @@ def main():
     st.sidebar.title('⚙️Options')
     datasrc = st.sidebar.radio("Select input source.", ['From test set.', 'Upload your own data.'])
 
-    '''
-    # option = st.sidebar.radio("Select input type.", ['Image', 'Video'])
-    if torch.cuda.is_available():
-        deviceoption = st.sidebar.radio("Select compute Device.", ['cpu', 'cuda'], index=1)
-    else:
-        deviceoption = st.sidebar.radio("Select compute Device.", ['cpu', 'cuda'], index=0)
-    # -- End of Sidebar
-    '''
-
     st.header('🚧Construction Object Detection Model')
     st.subheader('👈🏽Select the options')
 
